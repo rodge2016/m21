@@ -1,0 +1,132 @@
+<?php
+ echo $_total = $block->sayHello();
+?>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.js"></script>
+<div class="finderProducts horizontal">
+
+    <form action="" id="finderform_1" name="finderform" class="finderform" method="post">
+        <h3 class="finder_header" style="color:red;">Select Your Vehicle </h3>
+        <div id="finderDropdowns_1" class="finderDropdowns">
+            <ul class="clearfix">
+                <label> year</label>
+                <select name="finder_1" field-id="1" drop-down-counts="3" drop-down-id="1" id="finder_1_1"  onchange="show_year()" >
+
+                    <option value="">Please Select</option>
+                    <option value="1949">1949</option>
+                    <option value="1950">1950</option>
+                    <option value="1951">1951</option>
+                    <option value="1952">1952</option>
+                    <option value="1953">1953</option>
+                    <option value="1954">1954</option>
+                    <option value="1955">1955</option>
+                    <option value="1956">1956</option>
+                    <option value="1956">1957</option>
+                    <option value="1956">1958</option>
+                    <option value="1956">1959</option>
+                </select>
+                <label> make</label>
+                <select name="finder_2" field-id="2" drop-down-counts="3" drop-down-id="2" id="finder_1_2" onchange="show_make()">
+                    <option selected="selected">Please Select</option>
+                </select>
+
+                <label> model</label>
+                <select name="finder_3" field-id="3" drop-down-counts="3" drop-down-id="3" id="finder_1_3">
+                    <option selected="selected">Please Select</option>
+                </select>
+
+<!--                <label> submodel</label>-->
+<!--                <select name="finder_4" field-id="4" drop-down-counts="4" drop-down-id="4" id="finder_1_4"  >-->
+<!--                    <option value="">Please Select</option>-->
+<!--                </select>-->
+        </div>
+<!--        <button id="find_1" type="submit" title="Find" value="1" name="find" class="action subscribe primary" disabled=""><span>Find</span></button>-->
+    </form>
+</div>
+
+<script>
+//alert(window.location.href);
+// 获取选择数据发送， 遍历接收数据填充
+//var baseUrl = '<?php //echo Mage::getUrl('');?>//';
+//"<?php //echo $block->getAjaxUrl(); ?>//"
+//echo $this->_urlBuilder->getUrl("com/index/syear/");
+
+
+
+$("#finder_1_1").change(function(){
+
+//    再次选择时候判断make 有没有值,有就清空，（清空下一格）
+    if($("#finder_1_2").find("option:selected").text()){
+        $("#finder_1_1").css({ "border":"1px", "color":"#f00", "border-style":"solid"});
+        $("#finder_1_2").empty();
+        $("#finder_1_2").css({"border":"1px", "color":"#f00", "border-style":"solid"});
+        $("#finder_1_2").append("<option>"+"Please Select"+"</option>");
+        $("#finder_1_3").empty();
+        $("#finder_1_3").append("<option>"+"Please Select"+"</option>");
+          }
+     var year=$("#finder_1_1").val();
+          alert(year);
+    $.post("http://192.168.1.16/magento21/com/index/syear", { "year": year },
+        function(data){
+           console.log("数据: \n" + data );
+//            var json = [{dd:'SB',AA:'东东',re1:123},{cccc:'dd',lk:'1qw'}];
+            for(var i=0,l=data.length;i<l;i++){
+                for(var key in data[i]){
+                    $("#finder_1_2").append("<option value='" + i + "'>" +data[i][key] + "</option>");
+                }
+            }
+        });
+});
+
+$("#finder_1_2").change(function(){
+    $("#finder_1_3").css({"border":"1px", "color":"#f00", "border-style":"solid"});
+//    if($("#finder_1_3").find("option:selected").text()){
+//        $("#finder_1_3").empty();
+//        $("#finder_1_3").append("<option>"+"Please Select"+"</option>");
+//    }
+    var year =$("#finder_1_1").find("option:selected").text();
+    var make=$("#finder_1_2").find("option:selected").text();
+    alert(year);
+    alert(make);
+
+    $.post("http://192.168.1.16/magento21/com/index/smodel", {"year": year,"make": make},
+        function(data){
+            console.log("数据: \n" + data );
+            for(var i=0,l=data.length;i<l;i++){
+                for(var key in data[i]){
+                    $("#finder_1_3").append("<option value='" + i + "'>" +data[i][key] + "</option>");
+                }
+            }
+        });
+});
+
+
+
+//$("#finder_1_3").change(function(){
+////    if($("#finder_1_4").find("option:selected").text()){
+////        $("#finder_1_4").empty();
+////        $("#finder_1_4").css({"border":"1px", "color":"#f00", "border-style":"solid"});
+////        $("#finder_1_4").append("<option>"+"Please Select"+"</option>");
+////    }
+//    var year =$("#finder_1_1").find("option:selected").text();
+//    var make=$("#finder_1_2").find("option:selected").text();
+//    var model=$("#finder_1_3").find("option:selected").text();
+//    alert(year);
+//    alert(make);
+//    alert(model);
+//
+//    $.post("http://192.168.1.16/magento21/com/index/smodel", {"year": year,"make": make,"model": model},
+//        function(data){
+//            console.log("数据: \n" + data );
+//            for(var i=0,l=data.length;i<l;i++){
+//                for(var key in data[i]){
+//                    $("#finder_1_3").append("<option value='" + i + "'>" +data[i][key] + "</option>");
+//                }
+//            }
+//        });
+//});
+
+</script>
+
+<!--$this->loadLayout();-->
+<!--$toplink = $this->getLayout()->getBlock('top.links')->toHtml();-->
+<!--$sidebar = $this->getLayout()->getBlock('cart_sidebar')->toHtml();-->

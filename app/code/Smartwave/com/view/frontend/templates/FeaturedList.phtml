@@ -1,0 +1,220 @@
+<?php
+use Magento\Framework\App\Action\Action;
+?>
+<?php
+
+$_productCollection = $block->getLoadedProductCollection();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+
+$_category_config = $this->helper('Smartwave\Porto\Helper\Data')->getConfig('porto_settings/category');
+$_category_grid_config = $this->helper('Smartwave\Porto\Helper\Data')->getConfig('porto_settings/category_grid');
+$move_actions = "";
+
+//echo $this->get_url();
+?>
+<?php if (!$_productCollection->count()): ?>
+    <!--    --><?php // var_dump($_productCollection->count()) ; ?>
+    <div class="message info empty"><div><?php echo __('Sorry, Can\'t find products matching the search.Please search in other ways.')?><a href="<?php echo $block->getUrl(''); ?>">&nbsp&nbspHomepage</a></div></div>
+<?php else: ?>
+    <?php echo $block->getToolbarHtml() ?>
+    <?php echo $block->getAdditionalHtml() ?>
+    <?php
+    if ($block->getMode() == 'grid') {
+        $viewMode = 'grid';
+        $image = 'category_page_grid';
+        $hover_image = 'category_page_grid-hover';
+        $showDescription = false;
+        $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+        $columns = 'columns'.$_category_grid_config['columns'];
+        $move_actions = $_category_grid_config['move_actions'];
+    } else {
+        $viewMode = 'list';
+        $image = 'category_page_list';
+        $hover_image = 'category_page_list-hover';
+        $showDescription = true;
+        $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::FULL_VIEW;
+        $columns = '';
+    }
+    $image_width = ($_category_config['ratio_width'])?$_category_config['ratio_width']:300;
+    $image_height = ($_category_config['ratio_height'])?$_category_config['ratio_height']:300;
+    ?>
+    <div class="products wrapper <?php echo $viewMode; ?> <?php echo $columns; ?> products-<?php echo $viewMode; ?>">
+        <?php $iterator = 1; ?>
+        <ol class="products list items product-item">
+            <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
+            <?php foreach ($_productCollection as $_product): ?>
+
+                <?php echo($iterator++ == 1) ? '<li class="item product product-item">' : '</li><li class="item product product-item">' ?>
+                <div class="product-item-info" data-container="product-grid">
+                    <?php // Product Image ?>
+                    <div class="product photo product-item-photo">
+                        <a href="<?php echo $_product->getProductUrl() ?>" tabindex="-1">
+                            <?php
+                            if($_category_config['aspect_ratio'])
+                                $productImage = $_imagehelper->init($_product, $image)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($image_width);
+                            else
+                                $productImage = $_imagehelper->init($_product, $image)->resize($image_width, $image_height);
+                            $productImageUrl = $productImage->getUrl();
+                            ?>
+                            <img class="product-image-photo default_image" src="<?php echo $productImageUrl; ?>" alt="<?php echo $productImage->getLabel(); ?>"/>
+                            <?php if($_category_config['alternative_image']): ?>
+                                <?php
+                                if($_category_config['aspect_ratio'])
+                                    $productHoverImage = $_imagehelper->init($_product, $hover_image)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($image_width);
+                                else
+                                    $productHoverImage = $_imagehelper->init($_product, $hover_image)->resize($image_width, $image_height);
+                                $productHoverImageUrl = $productHoverImage->getUrl();
+                                ?>
+                                <?php if($productImageUrl != str_replace("/thumbnail/","/small_image/",$productHoverImageUrl)): ?>
+                                    <img class="product-image-photo hover_image" src="<?php echo $productHoverImageUrl; ?>" alt="<?php echo $productHoverImage->getLabel(); ?>"/>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        </a>
+                        <?php if($_category_config['actions'] && $move_actions): ?>
+                            <div class="product-item-inner">
+                                <div class="product actions product-item-actions">
+                                    <div class="actions-primary">
+                                        <?php if ($_product->isSaleable()): ?>
+                                            <?php $postParams = $block->getAddToCartPostParams($_product); ?>
+                                            <form data-role="tocart-form" action="<?php echo $postParams['action']; ?>" method="post">
+                                                <input type="hidden" name="product" value="<?php echo $postParams['data']['product']; ?>">
+                                                <input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+                                                <?php echo $block->getBlockHtml('formkey')?>
+                                                <button type="submit"
+                                                        title="<?php echo $block->escapeHtml(__('BUY NOW')); ?>"
+                                                        class="action tocart primary">
+                                                    <span><?php echo __('BUY NOW') ?></span>
+                                                </button>
+                                            </form>
+                                        <?php else: ?>
+                                            <?php if ($_product->getIsSalable()): ?>
+                                                <div class="stock available"><span><?php echo __('In stock') ?></span></div>
+                                            <?php else: ?>
+                                                <div class="stock unavailable"><span><?php echo __('Out of stock') ?></span></div>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    </div>
+                                    <?php if ($block->getMode() == 'grid'): ?>
+                                        <?php if($_category_config['addtowishlist']): ?>
+                                            <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
+
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                    <?php if($_category_config['addtocompare']): ?>
+                                        <?php
+                                        $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+                                        ?>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="product details product-item-details">
+                        <?php
+                        $_productNameStripped = $block->stripTags($_product->getName(), null, true);
+                        ?>
+                        <strong class="product name product-item-name">
+                            <a class="product-item-link"
+                               href="<?php echo $_product->getProductUrl() ?>">
+                                <?php echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
+                            </a>
+                        </strong>
+                        <?php if($_category_config['rating_star']): ?>
+                            <?php
+                            $review_html = $block->getReviewsSummaryHtml($_product, $templateType);
+                            ?>
+                            <?php if($review_html): ?>
+                                <?php echo $review_html; ?>
+                            <?php else: ?>
+                                <div class="product-reviews-summary short">
+                                    <div class="rating-summary">
+                                        <span class="label"><span>Rating:</span></span>
+                                        <div class="rating-result" title="0%">
+                                            <span style="width:0"><span>0%</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                        <?php if ($showDescription):?>
+                            <div class="product description product-item-description">
+                                <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>"
+                                   class="action more"><?php echo __('Learn More') ?></a>
+                            </div>
+                        <?php endif; ?>
+                        <?php if($_category_config['product_price']): ?>
+                            <?php echo $block->getProductPrice($_product) ?>
+                        <?php endif; ?>
+                        <?php echo $block->getProductDetailsHtml($_product); ?>
+
+                        <?php if($_category_config['actions'] && !$move_actions): ?>
+                            <div class="product-item-inner">
+                                <div class="product actions product-item-actions">
+                                    <?php if ($block->getMode() == 'grid'): ?>
+                                        <?php if($_category_config['addtowishlist']): ?>
+                                            <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
+
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                    <div class="actions-primary">
+                                        <?php if ($_product->isSaleable()): ?>
+                                            <?php $postParams = $block->getAddToCartPostParams($_product); ?>
+                                            <a data-role="tocart-form" href="<?php echo $_product->getProductUrl() ?>" target="_blank">
+                                                <input type="hidden" name="product" value="<?php echo $postParams['data']['product']; ?>">
+                                                <input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+                                                <?php echo $block->getBlockHtml('formkey')?>
+                                                <button type="submit"
+                                                        title="<?php echo $block->escapeHtml(__('BUY NOW')); ?>"
+                                                        class="action tocart primary">
+                                                    <span><?php echo __(' BUY NOW') ?></span>
+                                                </button>
+                                            </a>
+                                        <?php else: ?>
+                                            <?php if ($_product->getIsSalable()): ?>
+                                                <div class="stock available"><span><?php echo __('In stock') ?></span></div>
+                                            <?php else: ?>
+                                                <div class="stock unavailable"><span><?php echo __('Out of stock') ?></span></div>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    </div>
+                                    <?php if ($block->getMode() != 'grid'): ?>
+                                        <?php if($_category_config['addtowishlist']): ?>
+                                            <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
+
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                    <?php if($_category_config['addtocompare']): ?>
+                                        <?php
+                                        $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+                                        ?>
+
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <?php echo($iterator == count($_productCollection)+1) ? '</li>' : '' ?>
+            <?php endforeach; ?>
+        </ol>
+    </div>
+    <?php echo $block->getToolbarHtml() ?>
+    <?php if (true) : ?>
+        <script type="text/x-magento-init">
+        {
+            "[data-role=tocart-form], .form.map.checkout": {
+                "catalogAddToCart": {}
+            }
+        }
+        </script>
+    <?php endif; ?>
+    <?php if ($block->getMode() == 'grid'): ?>
+
+    <?php endif; ?>
+<?php endif; ?>
+

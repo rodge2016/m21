@@ -1,0 +1,20 @@
+<!--<?xml version="1.0"?>-->
+<!--<page  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--layout="2columns-left"-->
+       <!--xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">-->
+    <!--<body>-->
+    <!--<referenceContainer name="page.top">-->
+    <!--<block-->
+            <!--class="Smartwave\com\Block\Post"-->
+            <!--name="com_display"-->
+            <!--template="Smartwave_com::cccom.phtml" after="sw.topnav"></block>-->
+    <!--</referenceContainer>-->
+    <!--</body>-->
+<!--</page>-->
+
+
+   <!--{{block class="Smartwave\com\Block\Post" template="Smartwave_com::cccom.phtml"}}-->
+        <!--name="page.top"-->
+        <!--before="opengraph.currency"-->
+        <!--after="custom_block"-->
+        <!--after="sw.topnav"  </block> -->

@@ -1,0 +1,121 @@
+<?php
+//  模板
+$product = $block->getProduct();
+echo $product->getName();
+// Use product according to your requirement
+?>
+<div id="vi-ilComp">
+    <!--    <div class="section-ttl"><h3>Compatibility</h3><div class="rd-sep"></div></div>-->
+    <div class="pb15" id="w1-41fltTxt">Please choose your vehicle year, make and model for specific results.</div>
+    <div class="pb15" id="w1-41topMsg" style="display:none">
+        To confirm that this part fits your vehicle, please choose a vehicle from your My Vehicles list OR enter your vehicle's Year, Make and Model.</div>
+    <div>
+        <div id="w1-41mvdd" style="display:none" class="mvdiv">
+            <div class="cmpB">My Vehicles</div>
+            <div style="padding-top: 4px; padding-bottom: 10px" id="w1-41anch">
+                <div id="w1-41ieveh" class="puldwn" style="width: 192px;"><a href="javascript:;" class="crtval" style="width: 150px; height: 22px; line-height: 22px; padding-top: 0px; padding-bottom: 0px; padding-right: 30px;"><b class="icn" style="top: 2px;"></b><span>
+		Select a vehicle</span></a>
+                    <ul class="select" style="display: none; top: 22px;">
+                        <li class="op  sel" value="11">
+                            Select a vehicle</li>
+                        <li class="op " value="20">
+                            <b>Saved Vehicles</b>
+                        </li>
+                        <li class="op " value="201">
+                        </li>
+                        <li class="op " value="202">
+                        </li>
+                        <li class="op " value="203">
+                        </li>
+                        <li class="op " value="204">
+                        </li>
+                        <li class="op " value="205">
+                        </li>
+                        <li class="op " value="206">
+                        </li>
+                        <li class="op " value="207">
+                        </li>
+                        <li class="op " value="208">
+                        </li>
+                        <li class="op " value="209">
+                        </li>
+                        <li class="op " value="2010">
+                        </li>
+                        <li class="op " value="13">
+                            <b>Recently Viewed Vehicles</b>
+                        </li>
+                        <li class="op " value="301">
+                        </li>
+                        <li class="op " value="302">
+                        </li>
+                        <li class="op " value="303">
+                        </li>
+                        <li class="op " value="304">
+                        </li>
+                        <li class="op " value="14">
+                            <a href="http://www.ebay.com/motors/garage/myvehicles?backto=ViewItem&amp;_trksid=p2047675.l2823">Manage vehicles</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div><a href="http://www.ebay.com/motors/garage/myvehicles?backto=ViewItem&amp;_trksid=p2047675.l2823">Manage vehicles</a></div>
+        </div>
+        <div class="ordiv" style="display:none" id="w1-41or">
+            <div class="orD">
+                <div class="orT">
+                    <span>&nbsp;</span>
+                </div>
+                <div>
+                    <img alt="or" src="http://ir.ebaystatic.com/pictures/aw/pics/sellHub/imgSellHubOr.gif">
+                </div>
+                <div class="orT">
+                    <span>&nbsp;</span>
+                </div>
+            </div>
+        </div>
+        <div class="ymmt">
+            <table id="w1-41-slct"><tbody><tr style="font-weight: bold;"><td><label for="Year">Year</label></td><td><label for="Make">Make</label></td><td><label for="Model">Model</label></td><td><label for="Submodel">Submodel</label></td></tr><tr><td style="padding-right: 10px;"><select id="Year"><option value="">-Select-</option><option value="2017">2017</option><option value="2016">2016</option><option value="1897">1897</option><option value="1896">1896</option></select></td><td style="padding-right: 10px;"><select id="Make" disabled=""><option value="">-Select-</option></select></td><td style="padding-right: 10px;"><select id="Model" disabled=""><option value="">-Select-</option></select></td><td style="padding-right: 10px;"><select id="Submodel" disabled="" style="width: 150px;"><option value="">All Submodels</option></select></td><td style="padding-right: 10px; vertical-align: top;"><input type="BUTTON" id="w1-41Go" name="Go" value="Go" disabled="" style="margin-top: -2px;"></td></tr></tbody></table>
+        </div>
+
+        <div style="clear:both;"></div>
+        <div id="showAllCVSpan" class="lnk"></div>
+        <div style="clear:both;"></div>
+
+    </div>
+    <div class="ptb10" style="clear: both; display: none;" id="w1-41dthr">
+        <div class="thrbr">
+            <span class="thrbrps">Please wait </span>
+        </div>
+    </div>
+    <div id="w1-41err" class="stmsg pt20" style="display:none; clear:both">
+        <div id="w1-41serr" style="display:none;padding-left:100px">
+            <p class="mi-er">
+                <i class="gspr icser"></i>
+			<span class="clr">
+			We were unable to complete your request. Please try again later.</span>
+            </p>
+        </div>
+        <div id="w1-41cerr" style="display:none;padding-left:100px">
+            <p class="mi-er">
+                <i class="gspr icser"></i>
+			<span class="clr">
+			 This part is not compatible with <span id="w1-41vnmchsn"> undefined.</span></span>
+            </p>
+        </div>
+
+        <div id="w1-41cbserr" style="display:none;padding-left:100px">
+            <p class="mi-er">
+                <i class="gspr icser"></i>
+			<span class="clr">
+			Compatibility information is not available for this item.</span>
+            </p>
+        </div>
+
+    </div>
+    <!--<div id="w1-41ctVNMTxt" >
+                <span class="lnk"><a href="javascript:;" id="w1-41shwAllCmp"> [show all compatible vehicles] </a></span>
+                </div>
+    -->
+
+
+</div>
