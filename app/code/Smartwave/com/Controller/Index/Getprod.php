@@ -39,18 +39,7 @@ public function execute()
 
        $this->_view->loadLayout();
        $this->_view->renderLayout();
-//
-//    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-//    $connection = $objectManager->get('Magento\Framework\App\ResourceConnection')->getConnection    ('\Magento\Framework\App\ResourceConnection::DEFAULT_CONNECTION');
-//    $product_id= $connection->fetchAll(("SELECT DISTINCT product_id  FROM relation_id  WHERE comp_id IN (  SELECT  comp_id  FROM compatibility where year ='{$year}' AND make = '{$make}'  AND  model = '{$model}')")
-//    );
 
-//    $resultPage = $this->_resultPageFactory->create();
-//    $resultPage->addHandle('latest_product');
-//      return $resultPage;
-
- // $resultPage->addHandle('module_custom_customlayout');
- //loads the layout of module_custom_customlayout.xml file with its name
 
   }
     public function get_url()

@@ -1,0 +1,1 @@
+/smb/html/magento21/vendor/magento/module-multishipping/view/frontend/web/js/multi-shipping.js

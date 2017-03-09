@@ -1,0 +1,1 @@
+/smb/html/magento21/vendor/magento/module-paypal/view/frontend/web/js/action/set-payment-method.js

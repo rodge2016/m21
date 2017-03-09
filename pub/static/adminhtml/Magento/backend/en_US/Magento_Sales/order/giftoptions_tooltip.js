@@ -1,0 +1,1 @@
+/smb/html/magento21/vendor/magento/module-sales/view/adminhtml/web/order/giftoptions_tooltip.js
