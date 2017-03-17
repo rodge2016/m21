@@ -1,1 +1,0 @@
-/var/www/magento21/vendor/magento/module-authorizenet/view/frontend/web/js/view/payment/authorizenet.js

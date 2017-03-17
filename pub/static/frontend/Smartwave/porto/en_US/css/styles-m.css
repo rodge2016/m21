@@ -12505,6 +12505,7 @@ fieldset[disabled] .sidebar .block-addbysku .action.remove {
     border-top: 1px solid #e8e8e8;
   }
 }
+
 @media only screen and (max-width: 767px) {
   .abs-visually-hidden-mobile-m {
     border: 0;
@@ -12516,6 +12517,7 @@ fieldset[disabled] .sidebar .block-addbysku .action.remove {
     position: absolute;
     width: 1px;
   }
+
   .abs-add-clearfix-mobile-m:before,
   .abs-add-clearfix-mobile-m:after,
   .account .column.main .block:not(.widget) .block-title:before,
@@ -12625,6 +12627,9 @@ fieldset[disabled] .sidebar .block-addbysku .action.remove {
     speak: none;
     text-align: center;
   }
+
+
+
   .navigation .parent .level-top:after {
     position: absolute;
     right: 7px;
@@ -14340,7 +14345,7 @@ fieldset[disabled] .sidebar .block-addbysku .action.remove {
     width:100%;
     margin:0 auto;
     max-width:1170px;
-    padding:0 15px;    
+    padding:0 15px;
 }
 #finderDropdowns_1 {
     float:left;
@@ -14475,6 +14480,7 @@ fieldset[disabled] .sidebar .block-addbysku .action.remove {
     .page-main{
         display: none;
     }
+
 }
 @media (max-width: 1300px) and (min-width: 1023px) {
     .finderProducts .select-part {
@@ -14483,7 +14489,9 @@ fieldset[disabled] .sidebar .block-addbysku .action.remove {
     #finderDropdowns_1 ul{
         margin:0;
     }
+
 }
+
 
 .custom-support1{
     background:#000;
