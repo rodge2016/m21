@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-customer/view/frontend/web/address.js
+/var/www/magento21/vendor/magento/module-customer/view/frontend/web/address.js

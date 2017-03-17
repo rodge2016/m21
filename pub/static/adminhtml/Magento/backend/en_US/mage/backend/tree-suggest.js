@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/mage/backend/tree-suggest.js
+/var/www/magento21/lib/web/mage/backend/tree-suggest.js

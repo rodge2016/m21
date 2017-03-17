@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-ui/view/base/web/js/form/element/ui-select.js
+/var/www/magento21/vendor/magento/module-ui/view/base/web/js/form/element/ui-select.js

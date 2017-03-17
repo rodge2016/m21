@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/mage/requirejs/text.js
+/var/www/magento21/lib/web/mage/requirejs/text.js

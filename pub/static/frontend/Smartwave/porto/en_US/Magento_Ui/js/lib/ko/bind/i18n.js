@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-ui/view/base/web/js/lib/ko/bind/i18n.js
+/var/www/magento21/vendor/magento/module-ui/view/base/web/js/lib/ko/bind/i18n.js

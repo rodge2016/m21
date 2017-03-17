@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/mage/dropdown.js
+/var/www/magento21/lib/web/mage/dropdown.js

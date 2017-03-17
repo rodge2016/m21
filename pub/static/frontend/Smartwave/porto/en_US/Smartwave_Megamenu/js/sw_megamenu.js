@@ -1,1 +1,1 @@
-/smb/html/magento21/app/code/Smartwave/Megamenu/view/frontend/web/js/sw_megamenu.js
+/var/www/magento21/app/code/Smartwave/Megamenu/view/frontend/web/js/sw_megamenu.js

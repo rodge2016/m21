@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-captcha/view/frontend/web/js/view/checkout/loginCaptcha.js
+/var/www/magento21/vendor/magento/module-captcha/view/frontend/web/js/view/checkout/loginCaptcha.js

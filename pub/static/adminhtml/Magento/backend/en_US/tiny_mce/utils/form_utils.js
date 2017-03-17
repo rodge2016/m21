@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/tiny_mce/utils/form_utils.js
+/var/www/magento21/lib/web/tiny_mce/utils/form_utils.js

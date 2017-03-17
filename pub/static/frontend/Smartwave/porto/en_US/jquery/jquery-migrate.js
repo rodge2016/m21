@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/jquery/jquery-migrate.js
+/var/www/magento21/lib/web/jquery/jquery-migrate.js

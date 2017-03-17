@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/jquery/jquery.metadata.js
+/var/www/magento21/lib/web/jquery/jquery.metadata.js

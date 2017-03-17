@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-paypal/view/frontend/web/js/paypal-checkout.js
+/var/www/magento21/vendor/magento/module-paypal/view/frontend/web/js/paypal-checkout.js

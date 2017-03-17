@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/knockoutjs/knockout-repeat.js
+/var/www/magento21/lib/web/knockoutjs/knockout-repeat.js

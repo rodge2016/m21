@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-catalog/view/adminhtml/web/catalog/base-image-uploader.js
+/var/www/magento21/vendor/magento/module-catalog/view/adminhtml/web/catalog/base-image-uploader.js

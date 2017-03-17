@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-catalog/view/adminhtml/web/catalog/type-events.js
+/var/www/magento21/vendor/magento/module-catalog/view/adminhtml/web/catalog/type-events.js

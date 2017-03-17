@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-catalog/view/frontend/web/product/view/validation.js
+/var/www/magento21/vendor/magento/module-catalog/view/frontend/web/product/view/validation.js

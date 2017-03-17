@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/jquery/jquery.cookie.js
+/var/www/magento21/lib/web/jquery/jquery.cookie.js

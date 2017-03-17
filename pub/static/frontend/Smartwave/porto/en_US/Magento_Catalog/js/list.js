@@ -1,1 +1,1 @@
-/smb/html/magento21/app/design/frontend/Smartwave/porto/Magento_Catalog/web/js/list.js
+/var/www/magento21/app/design/frontend/Smartwave/porto/Magento_Catalog/web/js/list.js

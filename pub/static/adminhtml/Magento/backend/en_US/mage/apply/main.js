@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/mage/apply/main.js
+/var/www/magento21/lib/web/mage/apply/main.js

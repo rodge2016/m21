@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/mage/adminhtml/wysiwyg/tiny_mce/setup.js
+/var/www/magento21/lib/web/mage/adminhtml/wysiwyg/tiny_mce/setup.js

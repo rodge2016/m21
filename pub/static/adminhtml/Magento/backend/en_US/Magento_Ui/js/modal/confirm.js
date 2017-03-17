@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-ui/view/base/web/js/modal/confirm.js
+/var/www/magento21/vendor/magento/module-ui/view/base/web/js/modal/confirm.js

@@ -1,1 +1,0 @@
-/smb/html/magento21/vendor/magento/module-customer/view/adminhtml/web/edit/post-wrapper.js

@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-checkout/view/frontend/web/js/action/set-shipping-information.js
+/var/www/magento21/vendor/magento/module-checkout/view/frontend/web/js/action/set-shipping-information.js

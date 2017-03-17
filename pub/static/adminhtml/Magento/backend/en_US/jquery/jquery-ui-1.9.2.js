@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/jquery/jquery-ui-1.9.2.js
+/var/www/magento21/lib/web/jquery/jquery-ui-1.9.2.js

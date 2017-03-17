@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/mage/backend/floating-header.js
+/var/www/magento21/lib/web/mage/backend/floating-header.js

@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/moment.js
+/var/www/magento21/lib/web/moment.js

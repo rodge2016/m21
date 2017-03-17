@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/mage/sticky.js
+/var/www/magento21/lib/web/mage/sticky.js

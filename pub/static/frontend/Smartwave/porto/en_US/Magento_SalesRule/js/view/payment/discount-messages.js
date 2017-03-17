@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-sales-rule/view/frontend/web/js/view/payment/discount-messages.js
+/var/www/magento21/vendor/magento/module-sales-rule/view/frontend/web/js/view/payment/discount-messages.js

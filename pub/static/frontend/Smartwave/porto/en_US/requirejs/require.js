@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/requirejs/require.js
+/var/www/magento21/lib/web/requirejs/require.js

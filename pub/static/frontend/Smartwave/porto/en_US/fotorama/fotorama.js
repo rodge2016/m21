@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/fotorama/fotorama.js
+/var/www/magento21/lib/web/fotorama/fotorama.js

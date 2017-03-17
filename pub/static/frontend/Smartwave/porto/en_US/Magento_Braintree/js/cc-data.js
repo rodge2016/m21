@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-braintree/view/frontend/web/js/cc-data.js
+/var/www/magento21/vendor/magento/module-braintree/view/frontend/web/js/cc-data.js

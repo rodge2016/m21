@@ -1,1 +1,1 @@
-/smb/html/magento21/app/design/frontend/Smartwave/porto/web/js/theme.js
+/var/www/magento21/app/design/frontend/Smartwave/porto/web/js/theme.js

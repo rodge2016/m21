@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-catalog/view/frontend/web/js/view/image.js
+/var/www/magento21/vendor/magento/module-catalog/view/frontend/web/js/view/image.js

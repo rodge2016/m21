@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/magnifier/magnify.js
+/var/www/magento21/lib/web/magnifier/magnify.js

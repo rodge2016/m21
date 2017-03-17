@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/mage/validation.js
+/var/www/magento21/lib/web/mage/validation.js

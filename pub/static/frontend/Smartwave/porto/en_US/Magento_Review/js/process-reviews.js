@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-review/view/frontend/web/js/process-reviews.js
+/var/www/magento21/vendor/magento/module-review/view/frontend/web/js/process-reviews.js

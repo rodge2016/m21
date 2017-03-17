@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-fedex/view/frontend/web/js/view/shipping-rates-validation.js
+/var/www/magento21/vendor/magento/module-fedex/view/frontend/web/js/view/shipping-rates-validation.js

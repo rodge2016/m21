@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/mage/smart-keyboard-handler.js
+/var/www/magento21/lib/web/mage/smart-keyboard-handler.js

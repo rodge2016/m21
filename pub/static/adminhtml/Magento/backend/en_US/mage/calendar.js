@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/mage/calendar.js
+/var/www/magento21/lib/web/mage/calendar.js

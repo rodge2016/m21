@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/jquery/fileUploader/jquery.iframe-transport.js
+/var/www/magento21/lib/web/jquery/fileUploader/jquery.iframe-transport.js

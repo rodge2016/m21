@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-downloadable/view/adminhtml/web/downloadable-type-handler.js
+/var/www/magento21/vendor/magento/module-downloadable/view/adminhtml/web/downloadable-type-handler.js

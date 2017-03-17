@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-paypal/view/adminhtml/web/js/rule.js
+/var/www/magento21/vendor/magento/module-paypal/view/adminhtml/web/js/rule.js

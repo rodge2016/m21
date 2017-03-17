@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/jquery/jquery.tabs.js
+/var/www/magento21/lib/web/jquery/jquery.tabs.js

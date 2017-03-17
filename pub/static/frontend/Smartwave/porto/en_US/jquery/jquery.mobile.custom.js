@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/jquery/jquery.mobile.custom.js
+/var/www/magento21/lib/web/jquery/jquery.mobile.custom.js

@@ -1,1 +1,1 @@
-/smb/html/magento21/lib/web/mage/cookies.js
+/var/www/magento21/lib/web/mage/cookies.js

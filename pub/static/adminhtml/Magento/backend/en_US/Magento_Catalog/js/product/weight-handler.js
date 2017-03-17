@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-catalog/view/adminhtml/web/js/product/weight-handler.js
+/var/www/magento21/vendor/magento/module-catalog/view/adminhtml/web/js/product/weight-handler.js

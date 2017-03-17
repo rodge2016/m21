@@ -1,1 +1,1 @@
-/smb/html/magento21/vendor/magento/module-catalog/view/frontend/web/js/catalog-add-to-cart.js
+/var/www/magento21/app/design/frontend/Smartwave/porto/Magento_Catalog/web/js/catalog-add-to-cart.js
