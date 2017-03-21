@@ -1,0 +1,1 @@
+/var/www/magento21/app/code/Smartwave/com/view/frontend/web/js/ser.js
