@@ -14494,20 +14494,29 @@ fieldset[disabled] .sidebar .block-addbysku .action.remove {
 
 
 .custom-support1{
-    background:#000;
+    background:#505050;
+    width:100%;
+    overflow:hidden;
 }
+
 .auto{
     float: left;
+    width: 58%;
+    color: #FFFFFF;
     font-size:15px;
     font-weight:700;
-    margin-left:25%;
-    color :#FFF;
+    text-align: center;
+    border-right: solid #FFFFFF 1PX;
+    text-transform: uppercase;
 }
 .moto{
     font-size:15px;
     font-weight:700;
-    margin-left: 75%;
     color :#FFF;
+    width:40%;
+    text-align:center;
+    float:left;
+    text-transform:uppercase;
 }
 
 @media  (max-width: 767px){
