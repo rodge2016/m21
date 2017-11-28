@@ -69,7 +69,7 @@
            </referenceContainer>
         <referenceContainer name="sidebar.main">
             <block class="Magento\Catalog\Block\Navigation" name="catalog.leftnav" before="-" template="navigation/left.phtml"/>
-            <block class="Smartwave\Porto\Block\Template" name="category_view_custom_block" after="-" template="Magento_Catalog::category/custom_block.phtml"/>
+           <!-- <block class="Smartwave\Porto\Block\Template" name="category_view_custom_block" after="-" template="Magento_Catalog::category/custom_block.phtml"/>-->
         </referenceContainer>
 
     </body>

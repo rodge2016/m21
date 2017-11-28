@@ -18,10 +18,5 @@
         </referenceContainer>
         <move element="category.image" destination="content" before="category_desc_main_column"/>
 
-        <referenceContainer name="sidebar.main">
-            <block class="Smartwave\Porto\Block\Template" name="category_view_custom_block" after="-" template="Magento_Catalog::category/custom_block.phtml"/>
-        </referenceContainer>
-
-
-    </body>
+         </body>
 </page>

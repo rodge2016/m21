@@ -1,5 +1,15 @@
 (function(require){
 (function() {
+var config = {
+    map: {
+        '*': {
+            cwsfinder: 'Magebees_Finder/js/finder'
+		}
+    }
+};
+require.config(config);
+})();
+(function() {
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -432,8 +442,7 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            orderReview:            'Magento_Paypal/order-review',
-            paypalCheckout:         'Magento_Paypal/js/paypal-checkout'
+            transparent:            'Magento_Payment/transparent'
         }
     }
 };
@@ -448,7 +457,8 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            transparent:            'Magento_Payment/transparent'
+            orderReview:            'Magento_Paypal/order-review',
+            paypalCheckout:         'Magento_Paypal/js/paypal-checkout'
         }
     }
 };
@@ -593,6 +603,101 @@ var config = {
         }
     }
 };
+require.config(config);
+})();
+(function() {
+var config = {
+    paths: {
+        migrate: 'Mageplaza_Blog/js/lib/jquery-migrate-1.2.1.min',
+        fancybox: 'Mageplaza_Blog/js/lib/jquery.fancybox-1.3.4.pack.min',
+        comment: 'Mageplaza_Blog/js/comment',
+        autocomplete: 'Mageplaza_Blog/js/lib/jquery.autocomplete.min'
+    },
+    shim:{
+        fancybox: ['jquery']
+    }
+};
+require.config(config);
+})();
+(function() {
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Core
+ * @copyright   Copyright (c) 2016 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+var config = {
+    paths: {
+        'mageplaza/core/jquery/popup': 'Mageplaza_Core/js/jquery.magnific-popup.min',
+        'mageplaza/core/owl.carousel': 'Mageplaza_Core/js/owl.carousel.min',
+        'mageplaza/core/bootstrap': 'Mageplaza_Core/js/bootstrap.min'
+    },
+    shim: {
+        "mageplaza/core/jquery/popup": ["jquery"],
+        "mageplaza/core/owl.carousel": ["jquery"],
+        "mageplaza/core/bootstrap": ["jquery"]
+    }
+};
+
+require.config(config);
+})();
+(function() {
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license sliderConfig is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Shopbybrand
+ * @copyright   Copyright (c) 2016 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+var config = {
+    paths: {
+        brandSlider: 'Mageplaza_Shopbybrand/js/brand-slider'
+    }
+};
+
+require.config(config);
+})();
+(function() {
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+var config = {
+    map: {
+        '*': {
+            'Magento_Checkout/js/model/shipping-rates-validation-rules':'Magestore_OneStepCheckout/js/model/shipping-rates-validation-rules'
+        }
+    }
+};
+
 require.config(config);
 })();
 

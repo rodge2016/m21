@@ -118,6 +118,10 @@
   max-width: 100%;
   -webkit-transform-style: preserve-3d;
 }
+.owl-carousel .owl-item .container  img {
+    max-width:80%;
+}
+/*edit by Jane*/
 .owl-carousel.owl-text-select-on .owl-item {
   -webkit-user-select: auto;
   -moz-user-select: auto;

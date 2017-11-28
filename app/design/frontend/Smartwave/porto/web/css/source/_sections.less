@@ -92,3 +92,39 @@
         }
     }
 }
+//mobile edit by jane
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m){
+    .product.data.items{
+        > .item{
+            &.title{
+                border-bottom:solid #000 1px;
+                > .switch{
+                    width:45%;
+                    background: #a20101;
+                    color: #fff;
+                    border-radius: 5px 5px 0 0;
+                }
+                .switch:visited {
+                    color: #fff !important;
+                }
+            }
+            &.title.active{
+                > .switch{
+                    color: #fff !important;
+                }
+                > .switch:hover{
+                    color: #fff !important;
+                }
+            }
+        }
+    
+   .description{
+            table{
+                td{
+                    font-size:10px;
+                    padding:9px 2px;
+                }
+            }
+        }
+}
+}

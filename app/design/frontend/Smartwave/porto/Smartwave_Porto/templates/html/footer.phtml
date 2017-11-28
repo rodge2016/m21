@@ -157,3 +157,15 @@
     }
 ?>
 </div>
+<script type="text/javascript">// <![CDATA[
+    require([
+        'jquery',
+        'owl.carousel/owl.carousel.min'
+    ], function ($) {
+        $("div.col-sm-3").children("div").find("div").click(function () {
+            $(this).next("div.block-content").toggle("normal",function(){
+            });
+            $(this).toggleClass("active");
+        });
+    });
+    // ]]></script>

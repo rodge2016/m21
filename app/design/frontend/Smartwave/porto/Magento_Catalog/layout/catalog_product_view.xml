@@ -16,6 +16,5 @@
         </referenceContainer>
         <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/>
         <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
-        <move element="catalog.product.related" destination="sidebar.additional" after="product_view_custom_block"/>
-    </body>
+     </body>
 </page>

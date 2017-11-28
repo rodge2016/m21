@@ -49,7 +49,7 @@
             
             .block-title {
                 margin-bottom: 20px;
-                
+                margin-left:15px; 
                 strong {
                     font-weight: 400;
                     padding: 0;
@@ -58,7 +58,23 @@
                     text-transform: none;
                 }
             }
-            
+                .block-title:before{
+                content:'\f801';
+                position:absolute;
+                left:18px;
+                font-family:'porto-icons';
+                font-size:16px;
+            }
+            .block-title.active:before{
+                content:'\f807';
+                position:absolute;
+                left:15px;
+                font-size:20px;
+                font-family:'porto-icons';
+            }
+            .block-content{
+                margin-left:15px;
+            } 
             &.newsletter {
                 width: auto;
                 
@@ -516,3 +532,38 @@
         }
     }
 }
+.custom-support1{
+  background:#505050;
+  width:100%;
+  overflow:hidden;
+}
+.custom-support1 .customer-part{
+  overflow:hidden;
+  max-width:1170px;
+  margin:0 auto;
+}
+.auto{
+  float: left;
+  width: 60%;
+  color: #FFFFFF;
+  font-size:15px;
+  font-weight:700;
+  text-align: center;
+  border-right: solid #FFFFFF 1PX;
+  text-transform: uppercase;
+}
+.moto{
+  font-size:15px;
+  font-weight:700;
+  color :#FFF;
+  width:39%;
+  text-align:center;
+  float:left;
+  text-transform:uppercase;
+}
+@media(max-width: 767px){
+  .custom-support1{
+    display:none;
+  }
+}
+
