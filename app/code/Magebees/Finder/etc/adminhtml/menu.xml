@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+		<add id="Magebees_Finder::finder_content" title="YMM Products Parts Finder" module="Magebees_Finder" sortOrder="50" parent="Magebees_Menu::title" resource="Magebees_Finder::finder_content" />
+			<add id="Magebees_Finder::finder" title="Manage Finders" module="Magebees_Finder" sortOrder="0" parent="Magebees_Finder::finder_content" action="finder/finder" resource="Magebees_Finder::finder"/>
+			<add id="Magebees_Finder::config" title="Settings" action="adminhtml/system_config/edit/section/finder" module="Magebees_Finder" sortOrder="2" parent="Magebees_Finder::finder_content" resource="Magebees_Finder::config"/>
+    </menu>
+</config>

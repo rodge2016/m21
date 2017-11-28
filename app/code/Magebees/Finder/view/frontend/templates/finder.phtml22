@@ -1,0 +1,114 @@
+<?php 
+/* @var block \Magebees\Finder\Block\Finder */
+if($block->getEnabled()): 
+$finderId = 1; ?>
+<?php
+	$finderArr = array();
+	$finderStr = null;
+	$search = 0;
+	if($finderId==""){
+		$path = $this->getRequest()->getRequestString();
+		$search = strpos($path, 'finder');
+		if($search){
+			$finderparams = array();
+			$path = trim($path, '/');
+			$finderparams = explode('/',$path);
+			if(isset($finderparams[2])){
+				$finderStr = $finderparams[2];
+				$finderStrArr=explode('?',$finderStr);
+				$finderStr=current($finderStrArr);
+				$finderStr = urldecode($finderStr);
+				$finderArr = explode('-',$finderStr);
+			}
+			$finderId = $finderparams[1];
+		}
+	}
+?>
+<?php $dropdownCollection = $block->getDropdownsCollectionByFinderId($finderId); ?>
+<?php $finderCollection = $block->getFinderById($finderId); ?>
+<?php $searchurl = $this->getUrl('finder'.'/'.$finderId); ?>
+<?php if($finderCollection->getStatus()): ?>
+<div class="finderProducts <?php echo $finderCollection->getDropdownStyle() ?>">
+	<form action="<?php echo $searchurl; ?>" id="finderform_<?php echo $finderId ?>" name="finderform"  class="finderform" method="post">
+		<h3 class="finder_header"><?php echo __($finderCollection->getTitle()); ?></h3>
+		<div id="<?php echo "finderDropdowns_".$finderId ?>" class="finderDropdowns">
+		<ul class="clearfix">
+			<?php
+			$i=1;
+			$count=$dropdownCollection->count();	
+			foreach($dropdownCollection as $dropdown):
+				$productarray=array();
+				$field= "field".$i;
+			?>
+				<li id="drop_<?php echo $finderId ?>_<?php echo $i?>" class="drop_<?php echo $i; ?> column<?php echo $finderCollection->getNoOfColumns() ?>">
+					<label><?php echo __($dropdown->getName().": "); ?></label>
+					<select name="finder_<?php echo $i ?>" field-id="<?php echo $i ?>" drop-down-counts="<?php echo $count ?>" drop-down-id="<?php echo $dropdown->getId() ?>" id="finder_<?php echo $finderId ?>_<?php echo $i?>" >
+						<option value=""><?php echo __("Please Select"); ?></option>
+						<?php if($i==1 || !empty($finderArr))
+						{
+							$productCollection = $block->getProductsByFinderId($finderId,$dropdown->getSort(),$i,$finderStr);
+							if($productCollection){
+							foreach($productCollection as $product)	{
+								$key= $product->getData($field);
+								if(!array_key_exists($key,$productarray))
+								{
+									?>
+										<option value="<?php echo $product->getData($field);?>" <?php if(count($finderArr)!=""){ 
+																		if(array_key_exists($i-1,$finderArr) && $finderArr[$i-1] == $key){ 
+																			?> selected="selected" <?php 
+																			}
+																		}?> >
+											<?php echo $product->getData($field); ?>
+										</option>
+										
+									<?php
+									$productarray[$key]=$key;
+								}
+							}
+							}
+						}
+						?>
+					</select>
+				</li>
+				<?php $i++; ?>
+			<?php endforeach; ?>
+		</ul>
+		</div>
+		<button id="find_<?php echo $finderId ?>" type="submit" title="Find" value="1" name="find" class="action subscribe primary" disabled="" ><span><?php echo __($block->getFindBtnText()) ?></span></button>
+		<button id="reset_<?php echo $finderId ?>" drop-down-counts="<?php echo $count ?>" name="reset" value="1" title="Reset" class="button" <?php if($search): ?> type="submit" <?php else: ?> type="button" <?php endif; ?> ><span><span><?php echo __($block->getResetBtnText()) ?></span></span></button>
+	</form>
+</div>
+<?php $url = $this->getUrl('finder/index/finder'); ?>
+<script type="text/javascript">
+	requirejs(['jquery','cwsfinder'], function(jQuery){
+		var finderMage = {'finderId':'<?php echo $finderId ?>','url':'<?php echo $url ?>','searchurl':'<?php echo $searchurl ?>','autosearch':<?php echo $block->getAutosearch() ?>};
+		var dropdown_div_id = '<?php echo "#finderDropdowns_".$finderId ?>';
+		jQuery(dropdown_div_id).cwsfinder(finderMage);
+                window.onload=function(){
+            var url = document.location.toString();
+                if(url.substring(29,35)=="finder"){
+                           var url2 = (url.substring(38));
+                                if(url2.indexOf("?") !== -1){
+                                    var num  =  url2.indexOf("?");                                  
+                                    var url2 = url2.substring(0,num);                                  
+                                      }
+                                    var str = url2.split("-");                                
+                                    document.getElementById("finder_1_1").value=str[0];
+                                    document.getElementById("finder_1_2").options.add(new Option(str[1], str[1]));
+                                    document.getElementById("finder_1_2").value=str[1];
+                                                 if(str[2]){
+                                                     document.getElementById("finder_1_3").options.add(new Option(str[2], str[2]));
+                                                     document.getElementById("finder_1_3").value=str[2];
+                                                 }
+                                                  if(str[3]){
+                                                      document.getElementById("finder_1_4").options.add(new Option(str[3], str[3]));
+                                                      document.getElementById("finder_1_4").value=str[3];
+                                                  }
+
+                                }
+
+              }    
+ });	
+</script>
+<?php endif; ?>
+<?php endif; ?>

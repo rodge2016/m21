@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MagestyApps. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <magestyapps_advbreadcrumbs>
+            <general>
+                <enabled>1</enabled>
+                <structured_data>1</structured_data>
+            </general>
+            <product_pages>
+                <search_crumb_enabled>1</search_crumb_enabled>
+                <one_path>1</one_path>
+                <hide_duplicates>0</hide_duplicates>
+            </product_pages>
+        </magestyapps_advbreadcrumbs>
+    </default>
+</config>

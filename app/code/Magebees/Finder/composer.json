@@ -1,0 +1,22 @@
+{
+	"name": "magebees/finder",
+	"description": "For search product quickly.",
+	"type": "magento2-module",
+	"version": "1.2.0",
+	"license": [
+		"OSL-3.0",
+		"AFL-3.0"
+	],
+	"require": {
+		"php": "~5.6.5|7.0.2|7.0.4|~7.0.6",
+		"magento/magento-composer-installer": "*"
+	},
+	"extra": {
+		"map": [
+			[
+				"*",
+				"Magebees/Finder"
+			]
+		]
+	}
+}

@@ -1,0 +1,44 @@
+
+.finderProducts { padding:15px; background-color:#f0f0f0; margin-bottom:20px; }
+.finderProducts h3 { margin-top:0; font-size:2rem; font-weight:700; text-transform:uppercase; }
+.finderProducts:after, .finderProducts:before,.finderProducts ul:after { content:''; clear:both; display:block; }
+.finderProducts ul { list-style:none; margin:0; padding-left:0; }
+
+.finderDropdowns li label { font-weight:600; }
+.finderDropdowns li.column2 { width:49%; float:left; margin-right:2%; }
+.finderDropdowns li:nth-child(2n).column2 { margin-right:0; }
+.finderDropdowns li.column3 { width:32%; float:left; margin-right:2%; }
+.finderDropdowns li:nth-child(3n).column3 { margin-right:0; }
+.finderDropdowns li.column4 { width:23.5%; float:left; margin-right:2%; }
+.finderDropdowns li:nth-child(4n).column4 { margin-right:0; }
+.finderDropdowns li.column5 { width:18.4%; float:left; margin-right:2%; }
+.finderDropdowns li:nth-child(5n).column5 { margin-right:0; }
+
+.columns .column.main { width:100%; flex-basis:inherit !important; }
+
+.finderProducts.vertical { max-width:580px; }
+.finderProducts.vertical .finderDropdowns li.column2, .finderProducts.vertical .finderDropdowns li.column3,
+.finderProducts.vertical .finderDropdowns li.column4, .finderProducts.vertical .finderDropdowns li.column5 { width:100%; margin:0 0 10px; }
+
+.categoryGrid .product-item { text-align:center; }
+
+.cl { clear:both; }
+
+@media only screen and (max-width:999px) {
+	.finderDropdowns li.column5 { width:23.5%; }
+	.finderDropdowns li:nth-child(4n).column5 { margin-right:0; }
+	.finderDropdowns li:nth-child(5n).column5 { margin-right:2%; }
+}
+
+@media only screen and (max-width:768px) {
+	.finderDropdowns li.column3, .finderDropdowns li.column4 { width:49%; }
+	.finderDropdowns li:nth-child(2n).column3, .finderDropdowns li:nth-child(2n).column4 { margin-right:0; }
+	.finderDropdowns li:nth-child(3n).column3, .finderDropdowns li:nth-child(3n).column4 { margin-right:2%; }
+	
+	.finderDropdowns li.column5 { width:49%; }
+	.finderDropdowns li:nth-child(2n).column5 { margin-right:0; }
+}
+
+@media only screen and (max-width:599px) {
+	.finderDropdowns li.column2, .finderDropdowns li.column3, .finderDropdowns li.column4, .finderDropdowns li.column5 { width:100%; margin-right:0; }
+}

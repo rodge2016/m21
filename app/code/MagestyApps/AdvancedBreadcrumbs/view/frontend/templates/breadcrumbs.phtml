@@ -1,0 +1,45 @@
+<?php
+/**
+ * Copyright © 2016 MagestyApps. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+/** @var \MagestyApps\AdvancedBreadcrumbs\Block\Breadcrumbs $block */
+
+$crumbsLevels = $block->getAllBreadcrumbs();
+$addRS = $block->isStructuredDataEnabled();
+
+?>
+<?php if ($crumbsLevels && is_array($crumbsLevels)) : ?>
+    <div class="breadcrumbs">
+        <?php foreach ($crumbsLevels as $crumbsLevel) : ?>
+
+        <ul class="items" <?php if ($addRS) { echo 'vocab="http://schema.org/" typeof="BreadcrumbList"'; } ?>>
+            <?php foreach ($crumbsLevel as $crumbName => $crumbInfo) : ?>
+                <li class="item"
+                    <?php if (!empty($crumbInfo['hidden'])) { echo 'style="visibility: hidden;"'; } ?>
+                    <?php if ($addRS) { echo 'property="itemListElement" typeof="ListItem"'; } ?>
+                >
+                    <?php if (!empty($crumbInfo['link'])) : ?>
+                        <a href="<?php echo $crumbInfo['link'] ?>"
+                           title="<?php echo $block->escapeHtml($crumbInfo['title']) ?>"
+                            <?php if ($addRS) { echo 'property="item" typeof="WebPage"'; } ?>
+                        >
+                            <?php echo $block->escapeHtml($crumbInfo['title']) ?>
+
+                            <?php if ($addRS) : ?>
+                                <meta property="name" content="<?php echo $block->escapeHtml($crumbInfo['title']) ?>" />
+                            <?php endif; ?>
+                        </a>
+                    <?php elseif (!empty($crumbInfo['last'])) : ?>
+                        <strong><?php echo $block->escapeHtml($crumbInfo['title']) ?></strong>
+                    <?php else: ?>
+                        <?php echo $block->escapeHtml($crumbInfo['title']) ?>
+                    <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

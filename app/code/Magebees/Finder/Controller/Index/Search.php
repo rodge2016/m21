@@ -1,0 +1,1 @@
+<?phpnamespace Magebees\Finder\Controller\Index;use \Magento\Framework\App\Action\Action;class Search extends Action{	public function execute(){		$this->_view->loadLayout();		$this->_view->renderLayout();	}}
