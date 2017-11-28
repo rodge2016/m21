@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Shopbybrand
+ * @copyright   Copyright (c) 2016 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="shopbybrand" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Shop by brand</label>
+            <tab>mageplaza</tab>
+            <resource>Mageplaza_Shopbybrand::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="attribute" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Brand Attribute</label>
+                    <source_model>Mageplaza\Shopbybrand\Model\Config\Source\ProductAttribute</source_model>
+                    <comment><![CDATA[E.g: <b>manufacture</b> attribute or create your own <b>brand</b> attribute.]]></comment>
+                </field>
+                <field id="route" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Brand route</label>
+                    <comment><![CDATA[Custom brand page URL. Default: <strong>brands</strong>]]></comment>
+                </field>
+                <field id="link_title" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Brand Link Title</label>
+                    <comment>Default: 'Brands'</comment>
+                </field>
+                <field id="show_position" translate="label" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Brand Link In</label>
+                    <source_model>Mageplaza\Shopbybrand\Model\Config\Source\BrandPosition</source_model>
+                </field>
+                <field id="show_logo" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show brand logo on product page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="brandpage" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>All Brands Page Settings</label>
+                <field id="name" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Brand list name</label>
+                    <comment>Including Page title, breadcrumbs</comment>
+                </field>
+                <field id="display" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Option</label>
+                    <source_model>Mageplaza\Shopbybrand\Model\Config\Source\FeatureDisplay</source_model>
+                </field>
+                <field id="color" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Color</label>
+                    <validate>jscolor {hash:true,refine:false}</validate>
+                </field>
+                <field id="show_description" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Brand Description</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="custom_css" sortOrder="100" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Css</label>
+                    <comment><![CDATA[Example: .step-title{background-color: #1979c3;}]]></comment>
+                </field>
+                <group id="search" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Brand Search Settings</label>
+                    <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Show Search Block</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="min_search_chars" translate="label" type="text" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1">
+                        <label>Min chars</label>
+                        <comment>Minimum number of characters to search. Default: 1</comment>
+                        <validate>validate-digits</validate>
+                    </field>
+                    <field id="max_query_results" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Maximum Query Result</label>
+                        <validate>validate-digits</validate>
+                        <comment>The maximum number of the search result. If zero or empty, no limitation.</comment>
+                    </field>
+                    <field id="visible_images" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Visible Image</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <validate>validate-digits</validate>
+                    </field>
+                </group>
+                <group id="feature" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Featured Brand Settings</label>
+                    <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Show Featured Brands</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Title</label>
+                    </field>
+                    <field id="display" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Display Information</label>
+                        <source_model>Mageplaza\Shopbybrand\Model\Config\Source\FeatureDisplay</source_model>
+                    </field>
+                    <field id="custom_position" translate="label" type="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Embedded Code</label>
+                        <frontend_model>Mageplaza\Shopbybrand\Block\Adminhtml\System\FeatureDisplay</frontend_model>
+                    </field>
+                </group>
+            </group>
+            <group id="brandview" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Brand Information</label>
+                <field id="default_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Image</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/brand</upload_dir>
+                    <base_url type="media" scope_info="1">mageplaza/brand</base_url>
+                    <comment><![CDATA[Default Image for Brand. If empty, the product placeholder default image will be used.<br />(jpg, jpeg, gif, png)]]></comment>
+                </field>
+                <field id="default_block" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Block</label>
+                    <source_model>Mageplaza\Shopbybrand\Model\Config\Source\StaticBlock</source_model>
+                </field>
+                <field id="show_image" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Brand Image On Brand Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_description" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Brand Description On Brand Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_block" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Brand Static Block On Brand Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Shopbybrand
+ * @copyright   Copyright (c) 2016 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <shopbybrand>
+            <general>
+                <enabled>1</enabled>
+                <route>brands</route>
+                <link_title>Brands</link_title>
+                <show_position>1,2</show_position>
+                <show_logo>1</show_logo>
+            </general>
+            <brandpage>
+                <name>Brands</name>
+                <display>1</display>
+                <color>#0ed08e</color>
+                <show_description>0</show_description>
+                <search>
+                    <enable>1</enable>
+                    <min_search_chars>1</min_search_chars>
+                    <max_query_results>10</max_query_results>
+                    <visible_images>1</visible_images>
+                </search>
+                <feature>
+                    <enable>1</enable>
+                    <title>Featured Brands</title>
+                    <display>0</display>
+                </feature>
+            </brandpage>
+            <brandview>
+                <show_image>0</show_image>
+                <show_description>0</show_description>
+                <show_block>0</show_block>
+            </brandview>
+        </shopbybrand>
+    </default>
+</config>

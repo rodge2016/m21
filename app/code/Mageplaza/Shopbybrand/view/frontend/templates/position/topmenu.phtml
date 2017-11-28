@@ -1,0 +1,31 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Shopbybrand
+ * @copyright   Copyright (c) 2016 Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+?>
+<?php
+	$helper = $this->helper('Mageplaza\Shopbybrand\Helper\Data');
+	if($helper->canShowBrandLink(\Mageplaza\Shopbybrand\Model\Config\Source\BrandPosition::CATEGORY)):
+?>
+<li class="level0 nav-6 last level-top ui-menu-item" role="presentation">
+	<a href="<?php echo $helper->getBrandUrl() ?>" class="level-top ui-corner-all" id="ui-id-8" tabindex="-1" role="menuitem">
+		<span><?php echo $helper->getBrandTitle() ?></span>
+	</a>
+</li>
+<?php endif; ?>
