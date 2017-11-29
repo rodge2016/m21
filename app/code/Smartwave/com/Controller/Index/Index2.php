@@ -22,8 +22,7 @@ class Index2 extends \Magento\Framework\App\Action\Action {
         echo '<h3> Index2.php  compatibility  module</br>';
         $version = apache_get_version();
          echo "<h2>$version\n";
-         echo 'call test  controller';
-          echo  "display  controller";
+         echo 'call test  controller';        
     }
 
       
