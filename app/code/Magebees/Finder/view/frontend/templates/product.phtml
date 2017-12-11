@@ -9,6 +9,7 @@ use Magento\Framework\App\Action\Action;
  *
  * @var $block \Magebeed\Finder\Block\FinderProduct
  */
+ echo __FILE__;
 ?>
 <?php
 $_productCollection = $block->getLoadedProductCollection();
@@ -44,9 +45,9 @@ $imageBlock = $block->getLayout()->createBlock('Magento\Catalog\Block\Product\Im
     }
     ?>
 	
-    <div class="products wrapper <?php echo $viewMode; ?> products-<?php echo $viewMode; ?>">
+    <div class="products wrapper grid columns4 products-grid">
         <?php $iterator = 1; ?>
-       <div  class="finder-result"><h3><?php echo $block->getYmm(); ?></h3></div>         
+       <div  class="finder-result"><h3><?php echo $block->getYmm(); ?></h3></div>
         <ol class="products list items product-items">
             <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
             <?php foreach ($_productCollection as $_product): ?>
@@ -146,6 +147,28 @@ $imageBlock = $block->getLayout()->createBlock('Magento\Catalog\Block\Product\Im
             "catalogAddToCart": {}
             }
             }
+        </script>
+    <?php endif; ?>
+    <?php if ($block->getMode() == 'grid'): ?>
+        <script type="text/javascript">
+            require([
+                'jquery'
+            ], function ($) {
+                $('.main .products.grid .product-items li.product-item:nth-child(2n)').addClass('nth-child-2n');
+                $('.main .products.grid .product-items li.product-item:nth-child(2n+1)').addClass('nth-child-2np1');
+                $('.main .products.grid .product-items li.product-item:nth-child(3n)').addClass('nth-child-3n');
+                $('.main .products.grid .product-items li.product-item:nth-child(3n+1)').addClass('nth-child-3np1');
+                $('.main .products.grid .product-items li.product-item:nth-child(4n)').addClass('nth-child-4n');
+                $('.main .products.grid .product-items li.product-item:nth-child(4n+1)').addClass('nth-child-4np1');
+                $('.main .products.grid .product-items li.product-item:nth-child(5n)').addClass('nth-child-5n');
+                $('.main .products.grid .product-items li.product-item:nth-child(5n+1)').addClass('nth-child-5np1');
+                $('.main .products.grid .product-items li.product-item:nth-child(6n)').addClass('nth-child-6n');
+                $('.main .products.grid .product-items li.product-item:nth-child(6n+1)').addClass('nth-child-6np1');
+                $('.main .products.grid .product-items li.product-item:nth-child(7n)').addClass('nth-child-7n');
+                $('.main .products.grid .product-items li.product-item:nth-child(7n+1)').addClass('nth-child-7np1');
+                $('.main .products.grid .product-items li.product-item:nth-child(8n)').addClass('nth-child-8n');
+                $('.main .products.grid .product-items li.product-item:nth-child(8n+1)').addClass('nth-child-8np1');
+            });
         </script>
     <?php endif; ?>
 <?php endif; ?>
