@@ -4,18 +4,18 @@
  * See COPYING.txt for license details.
  */
 use Magento\Framework\App\Action\Action;
+
 // @codingStandardsIgnoreFile
+
 ?>
 <?php
 /**
  * Product list template
+ *
  * @var $block \Magento\Catalog\Block\Product\ListProduct
  */
 ?>
 <?php
-
-
-
 $_productCollection = $block->getLoadedProductCollection();
 $_helper = $this->helper('Magento\Catalog\Helper\Output');
 $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
@@ -50,38 +50,37 @@ $move_actions = "";
     $image_height = ($_category_config['ratio_height'])?$_category_config['ratio_height']:300;
     ?>
     <div class="products wrapper <?php echo $viewMode; ?> <?php echo $columns; ?> products-<?php echo $viewMode; ?>">
-        <?php $iterator = 1; ?>
-        <ol class="products list items product-items">
-            <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
-            <?php foreach ($_productCollection as $_product): ?>
-
-                <?php echo($iterator++ == 1) ? '<li class="item product product-item">' : '</li><li class="item product product-item">' ?>
-                <div class="product-item-info" data-container="product-grid">
-                    <?php // Product Image ?>
-                    <div class="product photo product-item-photo">
-                        <a href="<?php echo $_product->getProductUrl() ?>" tabindex="-1">
+    <?php $iterator = 1; ?>
+    <ol class="products list items product-items">
+        <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
+        <?php foreach ($_productCollection as $_product): ?>
+            <?php echo($iterator++ == 1) ? '<li class="item product product-item">' : '</li><li class="item product product-item">' ?>
+            <div class="product-item-info" data-container="product-grid">
+                <?php // Product Image ?>
+                <div class="product photo product-item-photo">
+                    <a href="<?php echo $_product->getProductUrl() ?>" tabindex="-1">
                         <?php
-                             if($_category_config['aspect_ratio'])
-                                $productImage = $_imagehelper->init($_product, $image)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($image_width);
-                            else
-                                $productImage = $_imagehelper->init($_product, $image)->resize($image_width, $image_height);
-                            $productImageUrl = $productImage->getUrl();
+                        if($_category_config['aspect_ratio'])
+                            $productImage = $_imagehelper->init($_product, $image)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($image_width);
+                        else
+                            $productImage = $_imagehelper->init($_product, $image)->resize($image_width, $image_height);
+                        $productImageUrl = $productImage->getUrl();
                         ?>
-                            <img class="product-image-photo default_image" src="<?php echo $productImageUrl; ?>" alt="<?php echo $productImage->getLabel(); ?>"/>
+                        <img class="product-image-photo default_image" src="<?php echo $productImageUrl; ?>" alt="<?php echo $productImage->getLabel(); ?>"/>
                         <?php if($_category_config['alternative_image']): ?>
-                        <?php
+                            <?php
                             if($_category_config['aspect_ratio'])
                                 $productHoverImage = $_imagehelper->init($_product, $hover_image)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($image_width);
                             else
                                 $productHoverImage = $_imagehelper->init($_product, $hover_image)->resize($image_width, $image_height);
                             $productHoverImageUrl = $productHoverImage->getUrl();
-                        ?>
+                            ?>
                             <?php if($productImageUrl != str_replace("/thumbnail/","/small_image/",$productHoverImageUrl)): ?>
-                            <img class="product-image-photo hover_image" src="<?php echo $productHoverImageUrl; ?>" alt="<?php echo $productHoverImage->getLabel(); ?>"/>
+                                <img class="product-image-photo hover_image" src="<?php echo $productHoverImageUrl; ?>" alt="<?php echo $productHoverImage->getLabel(); ?>"/>
                             <?php endif; ?>
                         <?php endif; ?>
-                        </a>
-                        <?php if($_category_config['actions'] && $move_actions): ?>
+                    </a>
+                    <?php if($_category_config['actions'] && $move_actions): ?>
                         <div class="product-item-inner">
                             <div class="product actions product-item-actions">
                                 <div class="actions-primary">
@@ -106,93 +105,92 @@ $move_actions = "";
                                     <?php endif; ?>
                                 </div>
                                 <?php if ($block->getMode() == 'grid'): ?>
-                                <?php if($_category_config['addtowishlist']): ?>
-                                <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
-                                    <a href="#"
-                                       class="action towishlist actions-secondary"
-                                       title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
-                                       aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
-                                       data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
-                                       data-action="add-to-wishlist"
-                                       role="button">
-                                        <span><?php echo __('Add to Wish List') ?></span>
-                                    </a>
-                                <?php endif; ?>
-                                <?php endif; ?>
+                                    <?php if($_category_config['addtowishlist']): ?>
+                                        <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
+                                            <a href="#"
+                                               class="action towishlist actions-secondary"
+                                               title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+                                               aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+                                               data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
+                                               data-action="add-to-wishlist"
+                                               role="button">
+                                                <span><?php echo __('Add to Wish List') ?></span>
+                                            </a>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                                 <?php if($_category_config['addtocompare']): ?>
-                                <?php
-                                $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
-                                ?>
-                                <a href="#"
-                                   class="action tocompare actions-secondary"
-                                   title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
-                                   aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
-                                   data-post='<?php echo $compareHelper->getPostDataParams($_product); ?>'
-                                   role="button">
-                                    <span><?php echo __('Add to Compare') ?></span>
-                                </a>
+                                    <?php
+                                    $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+                                    ?>
+                                    <a href="#"
+                                       class="action tocompare actions-secondary"
+                                       title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+                                       aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+                                       data-post='<?php echo $compareHelper->getPostDataParams($_product); ?>'
+                                       role="button">
+                                        <span><?php echo __('Add to Compare') ?></span>
+                                    </a>
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <?php endif; ?>
-                    </div>
-                    <div class="product details product-item-details">
+                    <?php endif; ?>
+                </div>
+                <div class="product details product-item-details">
+                    <?php
+                    $_productNameStripped = $block->stripTags($_product->getName(), null, true);
+                    ?>
+                    <strong class="product name product-item-name">
+                        <a class="product-item-link"
+                           href="<?php echo $_product->getProductUrl() ?>">
+                            <?php echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
+                        </a>
+                    </strong>
+                    <?php if($_category_config['rating_star']): ?>
                         <?php
-                            $_productNameStripped = $block->stripTags($_product->getName(), null, true);
-                        ?>
-                        <strong class="product name product-item-name">
-                            <a class="product-item-link"
-                               href="<?php echo $_product->getProductUrl() ?>">
-                                <?php echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
-                            </a>
-                        </strong>
-                        <?php if($_category_config['rating_star']): ?>
-                        <?php
-                            $review_html = $block->getReviewsSummaryHtml($_product, $templateType);
+                        $review_html = $block->getReviewsSummaryHtml($_product, $templateType);
                         ?>
                         <?php if($review_html): ?>
                             <?php echo $review_html; ?>
                         <?php else: ?>
-                        <div class="product-reviews-summary short">
-                            <div class="rating-summary">
-                                <span class="label"><span>Rating:</span></span>
-                                <div class="rating-result" title="0%">
-                                    <span style="width:0"><span>0%</span></span>
+                            <div class="product-reviews-summary short">
+                                <div class="rating-summary">
+                                    <span class="label"><span>Rating:</span></span>
+                                    <div class="rating-result" title="0%">
+                                        <span style="width:0"><span>0%</span></span>
+                                    </div>
                                 </div>
                             </div>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php if ($showDescription):?>
+                        <div class="product description product-item-description">
+                            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>"
+                               class="action more"><?php echo __('Learn More') ?></a>
                         </div>
-                        <?php endif; ?>
-                        <?php endif; ?>
-                        <?php if ($showDescription):?>
-                            <div class="product description product-item-description">
-                                <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
-                                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>"
-                                   class="action more"><?php echo __('Learn More') ?></a>
-                            </div>
-                        <?php endif; ?>
-                        <?php if($_category_config['product_price']): ?>
+                    <?php endif; ?>
+                    <?php if($_category_config['product_price']): ?>
                         <?php echo $block->getProductPrice($_product) ?>
-                        <?php endif; ?>
-                        <?php echo $block->getProductDetailsHtml($_product); ?>
-                        
-                        <?php if($_category_config['actions'] && !$move_actions): ?>
+                    <?php endif; ?>
+                    <?php echo $block->getProductDetailsHtml($_product); ?>
+
+                    <?php if($_category_config['actions'] && !$move_actions): ?>
                         <div class="product-item-inner">
                             <div class="product actions product-item-actions">
                                 <?php if ($block->getMode() == 'grid'): ?>
-                                <?php if($_category_config['addtowishlist']): ?>
-                                <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
-                                    <a href="#"
-                                       class="action towishlist actions-secondary"
-                                       title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
-                                       aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
-                                       data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
-                                       data-action="add-to-wishlist"
-                                       role="button">
-                                        <span><?php echo __('Add to Wish List') ?></span>
-                                    </a>
-                                <?php endif; ?>
-                                <?php endif; ?>
+                                    <?php if($_category_config['addtowishlist']): ?>
+                                        <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
+                                            <a href="#"
+                                               class="action towishlist actions-secondary"
+                                               title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+                                               aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+                                               data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
+                                               data-action="add-to-wishlist"
+                                               role="button">
+                                                <span><?php echo __('Add to Wish List') ?></span>
+                                            </a>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                                 <div class="actions-primary">
                                     <?php if ($_product->isSaleable()): ?>
@@ -216,41 +214,41 @@ $move_actions = "";
                                     <?php endif; ?>
                                 </div>
                                 <?php if ($block->getMode() != 'grid'): ?>
-                                <?php if($_category_config['addtowishlist']): ?>
-                                <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
-                                    <a href="#"
-                                       class="action towishlist actions-secondary"
-                                       title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
-                                       aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
-                                       data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
-                                       data-action="add-to-wishlist"
-                                       role="button">
-                                        <span><?php echo __('Add to Wish List') ?></span>
-                                    </a>
-                                <?php endif; ?>
-                                <?php endif; ?>
+                                    <?php if($_category_config['addtowishlist']): ?>
+                                        <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
+                                            <a href="#"
+                                               class="action towishlist actions-secondary"
+                                               title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+                                               aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+                                               data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
+                                               data-action="add-to-wishlist"
+                                               role="button">
+                                                <span><?php echo __('Add to Wish List') ?></span>
+                                            </a>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                                 <?php if($_category_config['addtocompare']): ?>
-                                <?php
-                                $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
-                                ?>
-                                <a href="#"
-                                   class="action tocompare actions-secondary"
-                                   title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
-                                   aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
-                                   data-post='<?php echo $compareHelper->getPostDataParams($_product); ?>'
-                                   role="button">
-                                    <span><?php echo __('Add to Compare') ?></span>
-                                </a>
+                                    <?php
+                                    $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+                                    ?>
+                                    <a href="#"
+                                       class="action tocompare actions-secondary"
+                                       title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+                                       aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+                                       data-post='<?php echo $compareHelper->getPostDataParams($_product); ?>'
+                                       role="button">
+                                        <span><?php echo __('Add to Compare') ?></span>
+                                    </a>
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <?php endif; ?>
-                    </div>
+                    <?php endif; ?>
                 </div>
-                <?php echo($iterator == count($_productCollection)+1) ? '</li>' : '' ?>
-            <?php endforeach; ?>
-        </ol>
+            </div>
+            <?php echo($iterator == count($_productCollection)+1) ? '</li>' : '' ?>
+        <?php endforeach; ?>
+    </ol>
     </div>
     <?php echo $block->getToolbarHtml() ?>
     <?php if (!$block->isRedirectToCartEnabled()) : ?>
@@ -265,7 +263,7 @@ $move_actions = "";
     <?php if ($block->getMode() == 'grid'): ?>
         <script type="text/javascript">
             require([
-                'jquery'        
+                'jquery'
             ], function ($) {
                 $('.main .products.grid .product-items li.product-item:nth-child(2n)').addClass('nth-child-2n');
                 $('.main .products.grid .product-items li.product-item:nth-child(2n+1)').addClass('nth-child-2np1');
