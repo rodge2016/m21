@@ -31,9 +31,9 @@ $ratingSummary = ($summaryModel->getRatingSummary()) ? $summaryModel->getRatingS
         <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
             <meta itemprop="price" content="<?php echo $_product->getFinalPrice(); ?>" />
             <?php if ($_product->isAvailable()): ?>
-                <span itemprop="availability" href="https://schema.org/InStock" ></span>
+                <span itemprop="availability" content="https://schema.org/InStock" ></span>
             <?php else : ?>
-                <span itemprop="availability" href="https://schema.org/OutOfStock" ></span>
+                <span itemprop="availability" content="https://schema.org/OutOfStock" ></span>
             <?php endif ?>
             <meta itemprop="priceCurrency" content="<?php echo $block->getCurrencyCode() ?>" />
         </div>
