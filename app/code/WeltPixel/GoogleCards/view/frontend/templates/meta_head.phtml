@@ -40,7 +40,7 @@ $ratingSummary = ($summaryModel->getRatingSummary()) ? $summaryModel->getRatingS
  <?php else : ?>
             "availability": "https://schema.org/OutOfStock",
 <?php endif; ?>
-            "price": "<?php echo $_product->getFinalPrice(); ?>"
+            "price": "<?php echo number_format($_product->getFinalPrice(),2) ; ?>"
         }
     }
 </script>
