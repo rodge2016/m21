@@ -20,6 +20,7 @@ $_productCollection = $block->getLoadedProductCollection();
 $_helper = $this->helper('Magento\Catalog\Helper\Output');
 $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
 
+
 $_category_config = $this->helper('Smartwave\Porto\Helper\Data')->getConfig('porto_settings/category');
 $_category_grid_config = $this->helper('Smartwave\Porto\Helper\Data')->getConfig('porto_settings/category_grid');
 $move_actions = "";
@@ -283,3 +284,16 @@ $move_actions = "";
         </script>
     <?php endif; ?>
 <?php endif; ?>
+<script type="application/ld+json">
+    {
+
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "bestRating": 5,
+            "worstRating": 1,
+            "ratingValue": "6",
+            "reviewCount": "10"
+        }
+
+    }
+</script>

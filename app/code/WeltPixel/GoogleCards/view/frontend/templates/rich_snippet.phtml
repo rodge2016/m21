@@ -12,8 +12,8 @@ $ratingSummary = ($summaryModel->getRatingSummary()) ? $summaryModel->getRatingS
 ?>
 <!-- rich snippets -->
 <?php if ($block->wrapWithDiv()): ?>
-    <div class="hide-rich-snippets">
-<?php endif ?>
+<div class="hide-rich-snippets">
+    <?php endif ?>
     <div itemscope itemtype="https://schema.org/Product">
         <meta itemprop="name" content="<?php /* @escapeNotVerified */ echo $block->escapeQuote($block->stripTags($_product->getName())); ?>" />
         <meta itemprop="image" content="<?php /* @escapeNotVerified */ echo $block->stripTags($block->getImage($_product, 'product_base_image')->getImageUrl()); ?>" />
@@ -29,7 +29,7 @@ $ratingSummary = ($summaryModel->getRatingSummary()) ? $summaryModel->getRatingS
         </div>
 
         <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-            <meta itemprop="price" content="<?php echo $_product->getFinalPrice(); ?>" />
+            <meta itemprop="price" content="<?php echo number_format($_product->getFinalPrice(),2) ; ?>" />
             <?php if ($_product->isAvailable()): ?>
                 <span itemprop="availability" content="https://schema.org/InStock" ></span>
             <?php else : ?>
@@ -38,8 +38,8 @@ $ratingSummary = ($summaryModel->getRatingSummary()) ? $summaryModel->getRatingS
             <meta itemprop="priceCurrency" content="<?php echo $block->getCurrencyCode() ?>" />
         </div>
     </div>
-<?php if ($block->wrapWithDiv()): ?>
-    </div>
+    <?php if ($block->wrapWithDiv()): ?>
+</div>
     <style>
         .hide-rich-snippets {display:none;}
     </style>
