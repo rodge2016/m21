@@ -224,6 +224,34 @@
             z-index: 999;
         }
     }
+  .active{
+    &#layered-filter-block{
+      .filter-title{
+        strong{
+          width: 25%;
+          top:10px;
+        }
+      }
+    }
+  }
+  #layered-filter-block{
+    .filter-title{
+      strong{
+        width: 100%;
+        top:30px;
+        background: #000;
+        color: #fff;
+        &:before{
+          content:'\f827';
+          font-family: 'porto-icons';
+          font-size: 20px;
+          overflow: hidden;
+          display: inline-block;
+          float: left;
+        }
+      }
+    }
+  }
 
     .filter {
         &.active {
