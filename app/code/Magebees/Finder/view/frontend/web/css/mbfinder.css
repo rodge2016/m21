@@ -1,6 +1,6 @@
 
 .finderProducts { padding:15px; background-color:#f0f0f0; margin-bottom:20px; }
-.finderProducts h3 { margin-top:0; font-size:2rem; font-weight:700; text-transform:uppercase; }
+.finderProducts h3 { margin-top:0; font-size:1.8rem; font-weight:700; text-transform:uppercase; }
 .finderProducts:after, .finderProducts:before,.finderProducts ul:after { content:''; clear:both; display:block; }
 .finderProducts ul { list-style:none; margin:0; padding-left:0; }
 
