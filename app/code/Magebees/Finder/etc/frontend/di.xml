@@ -11,10 +11,10 @@
             </argument>
         </arguments>
     </type>
-	<virtualType name="Magento\CatalogSearch\Model\ResourceModel\Fulltext\CollectionFactory" type="Magento\Catalog\Model\ResourceModel\Product\CollectionFactory">
-        <arguments>
-            <argument name="instanceName" xsi:type="string">Magebees\Finder\Model\ResourceModel\Fulltext\Collection</argument>
-        </arguments>
-    </virtualType> 
+	<!--<virtualType name="Magento\CatalogSearch\Model\ResourceModel\Fulltext\CollectionFactory" type="Magento\Catalog\Model\ResourceModel\Product\CollectionFactory">-->
+        <!--<arguments>-->
+            <!--<argument name="instanceName" xsi:type="string">Magebees\Finder\Model\ResourceModel\Fulltext\Collection</argument>-->
+        <!--</arguments>-->
+    <!--</virtualType> -->
 	<!--<preference for="Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection" type="Magebees\Finder\Model\ResourceModel\Fulltext\Collection" />-->
 </config>

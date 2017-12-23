@@ -131,7 +131,7 @@ class Collection extends \Magento\CatalogSearch\Model\ResourceModel\Fulltext\Col
 	}
 		
 	public function getProdcutSkusArr($element){return $element['sku'];}
-	
+
 	/**
      * @inheritdoc
      */
@@ -148,7 +148,7 @@ class Collection extends \Magento\CatalogSearch\Model\ResourceModel\Fulltext\Col
 			$finderparams = array();
 			$finderparams = explode('/',$path);
 			if(empty($finderparams[2])){
-				$skus = array('0'=>'');		
+				$skus = array('0'=>'');
 			}else{
 				//$finderStr = end($finderparams);
 				$finderStr = $finderparams[2];
@@ -179,7 +179,7 @@ class Collection extends \Magento\CatalogSearch\Model\ResourceModel\Fulltext\Col
 		}
 	    return parent::_renderFiltersBefore();
     }
-	
+
 	public function setOrder($attribute, $dir = Select::SQL_DESC)
     {
         $this->order = ['field' => $attribute, 'dir' => $dir];
@@ -188,5 +188,5 @@ class Collection extends \Magento\CatalogSearch\Model\ResourceModel\Fulltext\Col
         }
         return $this;
     }
-	
+
 }
