@@ -98,5 +98,42 @@
   line-height: 1;
   color: #555;
 }
+.category-description p{
+  line-height: 1.8;
+  color: #505050;
+  font-size: 14px;
+}
+/*desk-top*/
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m){
+  .filter .filter-current-subtitle{
+    background: #636363 !important;
+    color: #fff !important;
+    border-color: #b7b7b7 !important;
+  }
+  .filter-current .items {
+    border-color:#b7b7b7 !important;
+    background-color: #dadada !important;
+    color: #24252a !important;
+  }
+  .filter-actions {
+    border-color: #b7b7b7 !important;
+  }
+  .filter-options-title {
+    border-color: #b7b7b7 !important;
+    background-color: #636363 !important;
+    color: #fff !important;
+  }
+  .filter-options-content {
+    border-color: #b7b7b7 !important;
+    background-color: #dadada !important;
+    a{
+      color: #252525 !important;
+    }
+  }
+  .filter-value {
+    color: #192034 !important;
+  }
+}
+
 
 
