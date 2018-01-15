@@ -251,6 +251,13 @@
         }
       }
     }
+    .block-content {
+      &.filter-content {
+        position: absolute;
+        top: 60px;
+        width: 100%;
+      }
+    }
   }
 
     .filter {
@@ -316,7 +323,7 @@
             font-weight: @font-weight__light;
         }
         &-actions {
-            margin: -35px -@indent__s @indent__m;
+            margin: -35px 0 @indent__m;
         }
         &-options-content {
             padding: @indent__xs @indent__s;
@@ -336,8 +343,7 @@
         }
     }
     .filter .filter-current {
-        margin: @indent__xs -@indent__s 0;
-        border: solid @border-color__base;
+        margin: @indent__xs 0 0;
         border-width: 1px 0;
 
         .items {
