@@ -181,7 +181,11 @@
             }
         }
     }
-
+    .page-header.type1 {
+        position:fixed;
+        z-index:10;
+        box-shadow:0 2px 5px 0px rgba(0,0,0,0.3);
+    }
     header.page-header .nav-sections {
         &-items {
             .lib-clearfix();
@@ -360,8 +364,8 @@
         margin:0 !important;
     }
 	.page-header.type1{
-			li.ui-menu-item.level0.fullwidth.parent{
-			width:13%;
+        li.ui-menu-item.level0.fullwidth.parent{
+            width:13%;
 			padding:0 5px;
 		}
 		.navigation li.level0 > .level-top{
@@ -478,7 +482,7 @@
   form#finderform_1{
     max-width:1170px;
     overflow: hidden;
-    margin:0 auto;
+    margin:64px auto auto auto;
     padding: 0 20px;
   }
   .finderProducts h3{
