@@ -17,7 +17,21 @@
         <legend class="legend"><span><?php echo __('Write') ?> <b><?php echo __('Us') ?></b></span></legend><br />
         <fieldset class="fieldset row">
             <div class="fields col-sm-6">
-        <div class="field name required">
+          <div class="field subject required">
+                    <label class="label" for="subject"><span><?php /* @escapeNotVerified */ echo __('Order#') ?></span></label>
+                    <div class="control">
+                        <input name="subject" id="subject" title="<?php /* @escapeNotVerified */ echo __('Order#') ?>" value="" class="input-text" type="text" data-validate="{required:true}"/>
+                    </div>
+          </div>
+
+                <div class="field sku required">
+                    <label class="label" for="sku"><span><?php /* @escapeNotVerified */ echo __('SKU') ?></span></label>
+                    <div class="control">
+                        <input name="sku" id="sku" title="<?php /* @escapeNotVerified */ echo __('SKU') ?>" value="" class="input-text" type="text" data-validate="{required:true}"/>
+                    </div>
+                </div>
+
+                <div class="field name required">
             <label class="label" for="name"><span><?php echo __('Name') ?></span></label>
             <div class="control">
                 <input name="name" id="name" title="<?php echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
